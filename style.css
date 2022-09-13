@@ -54,12 +54,14 @@ h2 {
 .input-container {
     position: relative;
     margin-bottom: 8px;
+    width: 100%;
 }
 
 .todo__high-text_input,
 .todo__low-text_input {
+    display: block;
     height: 45px;
-    width: 460px;
+    width: 100%;
     border-radius: 6px;
     border: 1px solid #989898;
     font-family: 'Roboto';
@@ -150,4 +152,11 @@ h2 {
 
 [type="checkbox"]:checked:focus + label .custom-checkbox {
     outline-color:  black;
+}
+
+@media screen (max-width: 475px) {
+    .todo{
+        width: 100vw;
+        min-width: 200px;
+    }
 }
