@@ -52,6 +52,7 @@ h2 {
 
 .input-container {
     position: relative;
+    margin-bottom: 8px;
 }
 
 .todo__high-text_input,
@@ -77,4 +78,41 @@ h2 {
     position: absolute;
     top: 16px;
     right: 20px;
+    cursor: pointer;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+label {
+    display: flex;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid red;
+
+}
+
+.btn .delet-task {
+    width: 20px;
+    height: 20px;
 }
