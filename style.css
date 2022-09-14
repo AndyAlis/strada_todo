@@ -138,6 +138,11 @@ h2 {
 .task label {
     display: flex;
     align-items: flex-start;
+    width: 100%;
+}
+
+.task-done {
+    background-color: #F4F4F4;
 }
 
 
