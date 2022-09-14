@@ -23,7 +23,10 @@ highInput.addEventListener("keydown", (e) => {
 });
 
 highInputBtn.addEventListener("click", () => {
-   if(highInput.value != "")
+   if(highInput.value != "") {
+      addTask(id, 'high', highInput.value);
+        id++;
+   } 
 });
 
 lowInput.addEventListener("keydown", (e) => {
@@ -33,7 +36,12 @@ lowInput.addEventListener("keydown", (e) => {
    }
 });
 
-
+lowInputBtn.addEventListener("click", () => {
+   if(lowInput.value != "") {
+      addTask(id, 'low', lowInput.value);
+        id++;
+   } 
+});
 
 
 
