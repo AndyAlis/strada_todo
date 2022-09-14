@@ -49,9 +49,7 @@ lowInputBtn.addEventListener("click", () => {
 function addTask(id, status, text) {
    tasksTemplateInput.setAttribute('id', id);
    tasksTemplateLabel.setAttribute('for', id);
-   tasksTemplateText.textContent = text;
-
-   
+   tasksTemplateText.textContent = text;   
 
    let task = tasksTemplate.content.cloneNode(true);
    task.querySelector('.delet-task').addEventListener("click", function () {
@@ -66,4 +64,13 @@ function addTask(id, status, text) {
    else if (status === 'low') {
       lowTasks.append(task);
    }
+
+   clearInputs();
+
+}
+
+function clearInputs() {
+   highInput.value='';
+   lowInput.value='';
+
 }
