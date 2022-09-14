@@ -1,5 +1,5 @@
-const list = [{id: 0, value: 'Позавтракать', status: 'todo', priority: 'high',}, {id: 1, value: 'Поработать', status: 'todo', priority: 'low',}, {id: 3, value: 'Проснуться', status: 'done', priority: 'high',}];
-// const list = [];
+// const list = [{id: 0, value: 'Позавтракать', status: 'todo', priority: 'high',}, {id: 1, value: 'Поработать', status: 'todo', priority: 'low',}, {id: 3, value: 'Проснуться', status: 'done', priority: 'high',}];
+const list = [];
 
 const highInput = document.querySelector(".todo__high-text_input");
 const lowInput = document.querySelector(".todo__low-text_input");
@@ -15,7 +15,7 @@ const tasksTemplateInputCheckBox = tasksTemplate.content.querySelector('input');
 const tasksTemplateLabel = tasksTemplate.content.querySelector('label'); //select label to set for =""
 const tasksTemplateText = tasksTemplate.content.querySelector('.task-text'); //select div for text
 const tasksTemplateDeleteBtn = tasksTemplate.content.querySelector('.delet-task'); //select delete button
-const fullTaskDiv = 
+
 
 //Enter for high tasks
 highInput.addEventListener("keydown", (e) => {
@@ -61,10 +61,18 @@ function drawPage() {
 
    for (item of list) {
       
+            
+      const tasksTemplate = document.querySelector("#maketask"); //select full template to make Node
+      const tasksTemplateInputCheckBox = tasksTemplate.content.querySelector('input'); //select <input type="checkbox"> to set id
+      const tasksTemplateLabel = tasksTemplate.content.querySelector('label'); //select label to set for =""
+      const tasksTemplateText = tasksTemplate.content.querySelector('.task-text'); //select div for text
+      const tasksTemplateDeleteBtn = tasksTemplate.content.querySelector('.delet-task'); //select delete button
+
+
+
       //when draw page to put checkbox on task
       if(item.status === 'done') {
          tasksTemplateInputCheckBox.checked = true;
-         tasksTemplate.content.querySelector(".task").classList.add("task-done");//???????????????????????????????????????????????????????????????????
       }
       else tasksTemplateInputCheckBox.checked = false;
 
@@ -87,8 +95,14 @@ function drawPage() {
       //change status in array when change checkbox
       task.querySelector('input').onchange = function() {
          changeStatusInList(Number(this.getAttribute('id')));
-         this.parentNode.classList.toggle("task-done");//?????????????????????????????????????????????
-      };
+         if(this.parentNode.classList.contains('task-done')) this.parentNode.classList.remove('task-done')
+         else this.parentNode.classList.add('task-done');
+           };
+      
+      if(item.status === 'done') {
+         task.querySelector('.task').classList.add('task-done');
+      }
+
 
       if (item.priority === 'high') {
          highTasks.append(task);
